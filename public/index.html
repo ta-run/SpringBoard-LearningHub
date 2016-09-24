@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="learninghub">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- js libs -->
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/ui.router.js"></script>
+
+    <!-- scripts -->
+    <script src="script.js"></script>
+    <script src="controller/app.controller.js"></script>
+    <script src="controller/listing.controller.js"></script>
+</head>
+
+<body ng-controller="siteController as site">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <h1 class="col-sm-12">{{site.name}}<small>__finding the best online websites!</small></h1>
+        </div>
+    </nav>
+    <div class="container">
+        <section class="col-sm-12 col-md-12">
+            <div ui-view="listing"></div>
+        </section>
+    </div>
+</body>
+
+</html>

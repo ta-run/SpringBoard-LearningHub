@@ -1,0 +1,61 @@
+<div class="container">
+    <aside id="sort" class="col-sm-12 col-md-4">
+        <h2>SORT BY</h2>
+        <div class="sort-criteria">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model='listing.sortCriteria' name="sort-criteria" value="upvote" checked>
+                    Vote (Up)
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model='listing.sortCriteria' name="sort-criteria" value="downvote">
+                    Vote (Down)
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model='listing.sortCriteria' ng-change="listing.sortBy('learner')" name="sort-criteria" value="learners">
+                    Learners
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model='listing.sortCriteria' ng-change="listing.sortBy('hours')" name="sort-criteria" value="duration">
+                    Duration
+                </label>
+            </div>
+        </div>
+    </aside>
+    <div id="listing" class="col-sm-12 col-md-8">
+        <input type="text" class="form-control" id="search" ng-model="search.tags" placeholder="Search by tag" />
+        <p class="searchResults">Result: {{filteredPaths.length}} results found</p>
+
+        <div class="course col-sm-12" ng-repeat="path in listing.paths | orderBy:listing.propertyName:listing.reverse | filter:search as filteredPaths">
+            <div class="course-img col-sm-12 col-md-4">
+                <img src="{{path.image}}" alt="{{path.name}}">
+            </div>
+            <div class="course-details col-sm-12 col-md-8">
+                <h2 class="name">{{path.name}}</h2>
+                <p class="tags">{{path.tags}}</p>
+                <div class="stats col-sm-12">
+                    <div class="col-sm-2 votes pull-left"></div>
+                    <div class="sub-stats pull-right">
+                        <p class="learners">{{path.learner}} Learners</p>
+                        <p class="duration">{{path.hours}} Hours</p>
+                    </div>
+                </div>
+            </div>
+            <div class="description col-sm-12">
+                <h4 class="title"><strong>Description</strong></h4>
+                <div class="row">
+                    <div class="col-sm-12">{{path.description}}</div>
+                </div>
+            </div>
+            <div class="btn-container col-sm-12">
+                <a ng-href="{{path.sign_up}}" class="btn btn-success pull-right" role="button" target="_blank">View Curriculum</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+body {
+    font-family: "Segoe UI", "Lucida grande", "Helvetica", "Comic Sans";
+    background: #EAEAEA;
+}
+
+.course {
+    border: 1px solid #ADADAD;
+    margin: 10px 0;
+    padding: 20px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #ADADAD;
+}
+
+.course .description {
+    margin: 10px 0;
+}
+
+@media (max-width: 640px) {
+    .course {
+        padding: 10px 0;
+    }
+    .btn-container {
+        display: inline-block;
+    }
+}
